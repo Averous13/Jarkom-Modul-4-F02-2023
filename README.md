@@ -15,6 +15,8 @@ Lapres Jaringan Komputer Modul 4
 ####      b. Tidak menggunakan PREFIX ip yang ditetapkan sebelumnya
 ####      c. Hasil perhitungan untuk VLSM / CIDR, berbeda dengan di CPT / GNS3
 
+
+### VLSM
 Berikut adalah topologi yang digunakan 
 
 
@@ -79,3 +81,104 @@ Hasilnya kemudian kita petakan kedalam tabel berikut
 | A21    | 192.222.20.0  | 255.255.252.0   | 192.222.23.255 |
 
 #### Routing 
+
+
+### CIDR
+Berikut adalah topologi yang digunakan
+
+
+#### Subneting
+CIDR menggabungkan beberapa subnet hingga didapatkan satu subnet utama yang mencakup seluruh subnet.
+
+
+
+Detail dari gambar diatas dipetakan kedalam tabel berikut
+
+Lapisan pertama
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| B1     | A4            | /30           | A5 | /21 | /21 |
+| B2     | A7            | /30           | A8 | /29 | /28 |
+| B3     | A20           | /26           | A21 | /22 | /22 |
+| B4     | A15           | /22           | A16 | /24 | /21 |
+| B5     | A6            | /22           | A3 | /30 | /22 |
+| B6     | A18           | /23           | A19 | /30 | /23 |
+| B7     | A9            | /30           | A10 | /24 | /24 |
+
+Lapisan kedua
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| C1     | B2            | /28           | B5 | /22 | /22 |
+| C2     | B3            | /22           | B6 | /23 | /22 |
+| C3     | B4            | /21           | A14 | /30 | /21 |
+
+Lapisan Ketiga
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| D1     | C1            | /22           | B1 | /21 | /21 |
+| D2     | C2            | /22           | A17 | /30 | /22 |
+| D3     | C3            | /21           | A13 | /30 | /21 |
+
+Lapisan Keempat
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| E1     | D1            | /21           | A2 | /27 | /20 |
+| E2     | D2            | /22           | A12 | /29 | /22 |
+| E3     | D3            | /21           | A11 | /30 | /21 |
+
+Lapisan Kelima
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| F1     | E1            | /20           | A1 | /30 | /20 |
+| F2     | E2            | /22           | E3 | /21 | /20 |
+
+Lapisan Keenam
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| G1     | F1            | /20           | B7 | /24 | /20 |
+
+Subnet Total 
+| Subnet | Gabungan dari | Netmask Akhir |
+| ------ | ------------- | ------------- |
+| 1      | 2             |
+| Subnet | Netmask       | Subnet        | Netmask |
+| H1     | G1            | /20           | F2 | /20 | /19 |
+
+Setelah proses pembagian tiap subnet didapatkan IP dari metode CIDR pada tabel dibawah
+
+| Subnet | Network ID     | Netmask         | Broadcast      |
+| ------ | -------------- | --------------- | -------------- |
+| A1     | 192.222.14.252 | 255.255.255.252 | 192.222.14.255 |
+| A2     | 192.222.14.220 | 255.255.255.224 | 192.222.14.251 |
+| A3     | 192.222.0.16   | 255.255.255.252 | 192.222.0.19   |
+| A4     | 192.222.4.0    | 255.255.255.252 | 192.222.4.3    |
+| A5     | 192.222.4.4    | 255.255.248.0   | 192.222.12.3   |
+| A6     | 192.222.0.20   | 255.255.252.0   | 192.222.4.19   |
+| A7     | 192.222.0.0    | 255.255.255.252 | 192.222.0.7    |
+| A8     | 192.222.0.4    | 255.255.255.248 | 192.222.0.11   |
+| A9     | 192.22.15.0    | 255.255.255.252 | 192.222.15.3   |
+| A10    | 192.222.15.4   | 255.255.255.0   | 192.222.16.3   |
+| A11    | 192.222.29.8   | 255.255.255.252 | 192.222.29.11  |
+| A12    | 192.222.22.72  | 255.255.255.248 | 192.222.22.79  |
+| A13    | 192.222.29.4   | 255.255.255.252 | 192.222.29.7   |
+| A14    | 192.222.29.0   | 255.255.255.252 | 192.222.29.3   |
+| A15    | 192.222.24.0   | 255.255.252.0   | 192.222.27.255 |
+| A16    | 192.222.28.0   | 255.255.255.0   | 192.222.28.255 |
+| A17    | 192.222.22.68  | 255.255.255.252 | 192.222.22.71  |
+| A18    | 192.222.20.64  | 255.255.254.0   | 192.222..22.63 |
+| A19    | 192.222.22.64  | 255.255.255.252 | 192.222.22.67  |
+| A20    | 192.222.16.0   | 255.255.255.192 | 192.222.16.63  |
+| A21    | 192.222.16.64  | 255.255.252.0   | 192.222.20.63  |
+
