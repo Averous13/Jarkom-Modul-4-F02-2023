@@ -19,7 +19,7 @@ Lapres Jaringan Komputer Modul 4
 ### VLSM
 Berikut adalah topologi yang digunakan 
 
-
+![TOPO](Screenshot2023-11-28235649.png)
 
 #### Subnetting
 Subnet dibuat dengan menggunakan metode VLSM dengan pembagian seperti berikut
