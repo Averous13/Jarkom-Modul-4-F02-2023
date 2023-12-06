@@ -24,6 +24,7 @@ Berikut adalah topologi yang digunakan
 #### Subnetting
 Subnet dibuat dengan menggunakan metode VLSM dengan pembagian seperti berikut
 
+![vlsmtopo](Topologi VLSM.jpg)
 
 Untuk detail dari pembagian subnet kita petakan ke dalam tabel berikut
 
@@ -90,71 +91,22 @@ Berikut adalah topologi yang digunakan
 #### Subneting
 CIDR menggabungkan beberapa subnet hingga didapatkan satu subnet utama yang mencakup seluruh subnet.
 
-
+![cidrtopo](CIDR.jpg)
 
 Detail dari gambar diatas dipetakan kedalam tabel berikut
 
 Lapisan pertama
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| B1     | A4            | /30           | A5 | /21 | /21 |
-| B2     | A7            | /30           | A8 | /29 | /28 |
-| B3     | A20           | /26           | A21 | /22 | /22 |
-| B4     | A15           | /22           | A16 | /24 | /21 |
-| B5     | A6            | /22           | A3 | /30 | /22 |
-| B6     | A18           | /23           | A19 | /30 | /23 |
-| B7     | A9            | /30           | A10 | /24 | /24 |
+![PERTAMA](Screenshot (414).png)
 
-Lapisan kedua
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| C1     | B2            | /28           | B5 | /22 | /22 |
-| C2     | B3            | /22           | B6 | /23 | /22 |
-| C3     | B4            | /21           | A14 | /30 | /21 |
+Lapisan kedua & ketiga
 
-Lapisan Ketiga
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| D1     | C1            | /22           | B1 | /21 | /21 |
-| D2     | C2            | /22           | A17 | /30 | /22 |
-| D3     | C3            | /21           | A13 | /30 | /21 |
+![2&3](Screenshot (415).png)
 
-Lapisan Keempat
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| E1     | D1            | /21           | A2 | /27 | /20 |
-| E2     | D2            | /22           | A12 | /29 | /22 |
-| E3     | D3            | /21           | A11 | /30 | /21 |
+Lapisan Keempat & kelima
+![4&5](Screenshot (416).png)
 
-Lapisan Kelima
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| F1     | E1            | /20           | A1 | /30 | /20 |
-| F2     | E2            | /22           | E3 | /21 | /20 |
-
-Lapisan Keenam
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| G1     | F1            | /20           | B7 | /24 | /20 |
-
-Subnet Total 
-| Subnet | Gabungan dari | Netmask Akhir |
-| ------ | ------------- | ------------- |
-| 1      | 2             |
-| Subnet | Netmask       | Subnet        | Netmask |
-| H1     | G1            | /20           | F2 | /20 | /19 |
+Lapisan Keenam & Subnet Total 
+![total](Screenshot (418).png)
 
 Setelah proses pembagian tiap subnet didapatkan IP dari metode CIDR pada tabel dibawah
 
