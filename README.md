@@ -87,6 +87,7 @@ Hasilnya kemudian kita petakan kedalam tabel berikut
 ### CIDR
 Berikut adalah topologi yang digunakan
 
+![cidtopo](Screenshot(419).png)
 
 #### Subneting
 CIDR menggabungkan beberapa subnet hingga didapatkan satu subnet utama yang mencakup seluruh subnet.
