@@ -24,7 +24,7 @@ Berikut adalah topologi yang digunakan
 #### Subnetting
 Subnet dibuat dengan menggunakan metode VLSM dengan pembagian seperti berikut
 
-![vlsmtopo](Topologi VLSM.jpg)
+![vlsmtopo](TopologiVLSM.jpg)
 
 Untuk detail dari pembagian subnet kita petakan ke dalam tabel berikut
 
@@ -96,17 +96,17 @@ CIDR menggabungkan beberapa subnet hingga didapatkan satu subnet utama yang menc
 Detail dari gambar diatas dipetakan kedalam tabel berikut
 
 Lapisan pertama
-![PERTAMA](Screenshot (414).png)
+![PERTAMA](Screenshot(414).png)
 
 Lapisan kedua & ketiga
 
-![2&3](Screenshot (415).png)
+![2&3](Screenshot(415).png)
 
 Lapisan Keempat & kelima
-![4&5](Screenshot (416).png)
+![4&5](Screenshot(416).png)
 
 Lapisan Keenam & Subnet Total 
-![total](Screenshot (418).png)
+![total](Screenshot(418).png)
 
 Setelah proses pembagian tiap subnet didapatkan IP dari metode CIDR pada tabel dibawah
 
